@@ -5,19 +5,240 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+
     <title>Document</title>
 </head>
 <body>
-    <div class="personal_information_block">
-        <div class="personal_information_logo">
-            <span>Junior Back-end Developer</span>
-        </div>
+
+    <div class="header_background_image">
+        <img src="{% static 'images/background_image.jpg'%}" alt="">
+    </div>
+
+    <div class="personal_information_logo">
+        <span>Junior Backend Developer</span>
+    </div>
+
+    <div class="personal_information_container">
+
         <div class="personal_information">
-            name
-            age
+
+            <div class="information_block" id="information_block_name">
+                <div class="personal_information_header">
+                    <span>Name</span>
+                </div>
+
+                <div class="personal_information_data">
+                    <span>{{person.first_name}} {{person.last_name}}</span>
+                </div>
+            </div>
+
+            <div class="information_block" id="information_block_age">
+                <div class="personal_information_header">
+                    <span>Age</span>
+                </div>
+
+                <div class="personal_information_data">
+                    <span>{{person.age}}</span>
+                </div>
+            </div>
+
+            <div class="information_block" id="information_block_education">
+                <div class="personal_information_header">
+                    <span>Education</span>
+                </div>
+
+                <div class="personal_information_data">
+                    <span>{{person.education_grade}} in {{person.education_specialization}}</span>
+                </div>
+            </div>
+
+            <div class="information_block" id="information_block_location">
+                <div class="personal_information_header">
+                    <span>Location</span>
+                </div>
+
+                <div class="personal_information_data">
+                    <span>{{person.city}}, {{person.country}}</span>
+                </div>
+            </div>
+            <div class="information_block" id="information_block_email">
+                <div class="personal_information_header">
+                    <span>Email</span>
+                </div>
+                <div class="personal_information_data">
+                    <span>{{person.email}}</span>
+                </div>
+            </div>
+            <div class="personal_links">
+                <div class="link">
+                    <a href="{{person.github_link}}"><img src="{% static 'images/github_logo.png' %}" alt=""></a>
+                </div>
+                <div class="link">
+                    <a href="{{person.linkedin_link}}"><img src="{% static 'images/linkedin_logo.png' %}" alt=""></a>
+                </div>
+            </div>
+            
         </div>
+
         <div class="personal_photo">
-            <img src="#" alt="">
+            <img src="{% static 'images/photo.jpeg' %}" alt="" id="personal_photo_img">
+        </div>
+    </div>
+
+    <div class="about_person_container">
+        <p>{{person.info_about_person}}</p>
+    </div>
+
+    <div class="skill_container">
+
+        <div class="skill_header">
+            <span> Hard skills</span>
+        </div>
+
+        <div class="language_container">
+            <div class="language_header">
+                <span>Languages</span>
+            </div>
+            <div class="language_list">
+                {% for skill in hard_skills %}
+                    {% if skill.is_language %}
+                        <div class="skill_block">
+                            <div class="language_logo">
+                                <img src="{{ skill.logo.url }}" alt="{{ skill.title }}">
+                            </div>
+                            <div class="skill_level">
+                                {% if skill.level == 'TR' %}
+                                    <div class="progress" id="progress_TR"></div>
+                                {% elif skill.level == 'JR' %}
+                                    <div class="progress" id="progress_JR"></div>
+                                {% elif skill.level == 'MD' %}
+                                    <div class="progress" id="progress_MD"></div>
+                                {% elif skill.level == 'SR' %}
+                                    <div class="progress" id="progress_SR"></div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endif %}   
+                {% endfor %}
+            </div>
+            
+        </div>
+        <div class="tools_container">
+            <div class="tools_header">
+                <span>Tools</span>
+            </div>
+            <div class="tools_list">
+                {% for skill in hard_skills %}
+                    {% if not skill.is_language %}
+                        <div class="tool_block">
+                            <div class="tools_logo">
+                                <img src="{{ skill.logo.url }}" alt="{{ skill.title }}">
+                            </div>
+
+                            <div class="tool_level"> 
+                                {% if skill.level == 'TR' %}
+                                    <div class="progress" id="progress_TR"></div>
+                                {% elif skill.level == 'JR' %}
+                                    <div class="progress" id="progress_JR"></div>
+                                {% elif skill.level == 'MD' %}
+                                    <div class="progress" id="progress_MD"></div>
+                                {% elif skill.level == 'SR' %}
+                                    <div class="progress" id="progress_SR"></div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="soft_skill_container">
+        <div class="soft_skill_header">
+            <span>Soft skills</span>
+        </div>
+        <div class="natural_lenguage_container">
+            {% for skill in soft_skills %}
+                {% if skill.is_language %}
+                    <div class="natural_language_block">
+                        <div class="language_name">
+                            <span>{{ skill.title }}</span>
+                        </div>
+                        <span>-</span>
+                        <div class="natural_language_level">
+                            <span>{{ skill.get_level_display }}</span>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    <div class="projects_container">
+        <div class="project_container_header">
+            <span>Projects</span>
+        </div>
+        <div class="project_list">
+            {% for project in projects %}
+                <div class="project_block">
+                    <div class="project_title">
+                        <span>{{ project.title}}</span>
+                    </div>
+                    <div class="project_image">
+                        <img src="{{ project.image.url }}" alt="">
+                    </div>
+                    <div class="links_block">
+                        <div class="links_logo">
+                            <span>Link{% if project.url and project.repository_url %}s{% endif %}</span>
+                        </div>
+                        <div class="links">
+                            {% if project.repository_url %}
+                                <div class="project_url">
+                                    <a href="{{ project.repository_url }}"><img src="{% static 'images/github_logo.png' %}" alt=""></a>
+                                </div>
+                            {% endif %}
+                            {% if project.url %}
+                                <div class="project_url">
+                                    <a href="{{ project.url }}"><img src="{{ project.project_logo.url }}" alt=""></a>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="detail">
+                        <span><a href="#">Detail</a></span>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="experience_container">
+        <div class="experience_header">
+            <span>Experience</span>
+        </div>
+        <div class="experience_list">
+            {% if experiences %}
+                {% for experience in experiences %}
+                    <div class="experience_block">
+                        <div class="experience_block_header">
+                            <span>{{ experience.title }}</span>
+                        </div>
+
+                        <div class="experience_role">
+                            <span>{{ experience.role }}</span>
+                        </div>
+
+                        <div class="start_date">
+                            <span>{{ experience.start_date.month }}, {{ experience.start_date.year }}</span>
+                        </div>
+
+                        <div class="end_date">
+                            <span>{{ experience.end_date.month }}, {{ experience.end_date.year }}</span>
+                        </div>
+                    </div>
+                {% endfor %}
+                                
+            {% endif %}
         </div>
     </div>
 </body>

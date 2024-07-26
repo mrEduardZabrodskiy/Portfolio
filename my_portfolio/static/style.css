@@ -1,3 +1,441 @@
-body{
-    background-color: rgb(3, 52, 95);
+html{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    
+}
+*{
+    font-family: "Roboto Slab", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: rgb(204, 206, 207);
+  }
+
+
+
+/*personal info: info, links, photo*/
+.personal_information_container{
+    display: flex;
+    background-color: rgb(4, 47, 83);
+    border-radius: 10px;
+    justify-content: space-between;
+
+}
+.personal_information{
+    display: block;
+    width: 600px;
+    padding: 10px;
+    margin: 10px;
+}
+.personal_information_logo{
+    padding: 10px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+}
+.personal_information_logo span{
+    font-size: 28px;
+}
+.header_background_image{
+    height: 400px;
+    overflow:hidden;
+    border-radius: 10px;
+}
+.header_background_image img {
+    background-size: 400px 1200px;
+    width: 1200px;
+}
+
+.information_block{
+    display: flex;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgb(172, 169, 169);
+}
+.personal_information_header{
+
+    justify-content: left;
+    font-size: 20px;
+    width: 150px;
+    padding: 10px;
+}
+
+.personal_information_data{
+    width: 350px;
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+    font-size: 20px;
+}
+
+.personal_photo{
+    display: flex;
+    width: 400px;
+    justify-content: right;
+    padding: 20px;
+}
+.personal_photo img{
+    height: 450px;
+    border-radius: 10px;
+    display: flex;
+}
+.personal_links{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;   
+}
+.link img{
+    width: 50px;
+    margin: 0 50px 0 50px;
+}
+.link img:hover{
+    background-color: rgb(138, 137, 137);
+    border-radius: 10px;
+}
+
+
+/*letter about person*/
+.about_person_container{
+    background-color: rgb(4, 47, 83);
+    border-radius: 10px;
+    margin-top: 15px;
+}
+.about_person_container p{
+    padding: 20px;
+    margin: 10px;
+}
+
+
+/*skills*/
+.skill_container{
+    background-color: rgb(4, 47, 83);
+    border-radius: 10px;
+    margin-top: 15px;
+    padding: 15px;
+}
+.language_container, .tools_container{
+    display: flex;
+    justify-content: left;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgb(172, 169, 169);
+    padding-bottom: 10px;
+}
+.skill_header{
+    margin-bottom: 20px;
+}
+.skill_header span{
+    font-size: 22px;
+    padding: 15px;
+}
+.skill_block, .tool_block{
+    margin: 0 10px 0 10px;
+}
+.skill_level, .tool_level{
+    display: flex;
+    justify-content: left;
+    height: 15px;
+    width: 120px;
+    border-radius: 5px;
+    background-color: rgb(3, 21, 36);
+}
+.language_header, .tools_header{
+    padding: 15px;
+    align-items: center;
+    width: 110px;
+}
+.language_header span, .tools_header span{
+    font-size: 20px;
+}
+.language_list, .tools_list{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.language_logo img, .tools_logo img{
+    width: 80px;
+    margin: 0 20px 0 20px;
+    max-height: 80px;
+}
+#progress_TR{
+    width: 10%;
+    background-color: rgb(139, 139, 139);
+    border-radius: 5px;
+}
+#progress_JR{
+    width: 30%;
+    background-color: rgb(208, 255, 0);
+    border-radius: 5px;
+}
+#progress_MD{
+    width: 60%;
+    background-color: rgb(0, 250, 21);
+    border-radius: 5px;
+}
+#progress_SR{
+    width: 100%;
+    background-color: rgb(255, 0, 0);
+    border-radius: 5px;
+}
+
+
+/*soft_skill_container*/
+.soft_skill_container{
+    background-color: rgb(4, 47, 83);
+    border-radius: 10px;
+    margin-top: 15px;
+    padding: 15px;
+    padding-bottom: 20px;
+}
+.soft_skill_header{
+    margin-bottom: 20px;
+}
+.soft_skill_header span{
+    font-size: 22px;
+    padding: 15px;
+}
+.natural_language_block{
+    display: flex;
+    justify-content: space-between;
+    width: 250px;
+    padding: 10px;   
+}
+.language_name{
+    width: 120px;
+}
+.language_name span{
+    font-size: 20px;
+}
+.natural_language_level{
+    width: 130px;
+}
+.natural_language_level span{
+    font-size: 20px;
+}
+
+
+
+
+/*projects*/
+.projects_container{
+    background-color: rgb(4, 47, 83);
+    border-radius: 10px;
+    margin-top: 15px;
+    padding: 15px;
+    padding-bottom: 20px;
+}
+.project_container_header{
+    margin-bottom: 20px;
+}
+.project_container_header span{
+    font-size: 22px;
+    padding: 15px;
+}
+.project_list{
+    display: grid;
+    justify-content: left;
+    padding-left: 15px;
+    column-gap: 10px;
+    grid-template-columns: auto auto auto;
+    row-gap: 30px;
+}
+.project_block{
+    width: 300px;
+    height: 400px;
+    background-color: rgb(7, 32, 53);
+    border-radius: 5px;
+    margin: auto;
+}
+.project_title{
+    height: 50px;
+    display: flex;
+    justify-content: center;
+}
+.project_title span{
+    font-size: 20px;
+    padding: 5px;
+}
+.project_image{
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+}
+.project_image img{
+    width: 280px;
+}
+
+.links_block{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.links_logo{
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.links_logo span{
+    font-size: 20px;
+}
+.links{
+    display: flex;
+    justify-content: space-around;
+    width: 200px;
+}
+.project_url a img{
+    width: 50px;
+}
+.project_url a img:hover{
+    background-color:rgb(138, 137, 137);
+    border-radius: 10px;
+}
+.detail{
+    padding: 15px;
+}
+.detail span{
+    font-size: 20px;
+
+}
+
+
+/*experience_container*/
+.experience_container{
+    background-color: rgb(4, 47, 83);
+    border-radius: 10px;
+    margin-top: 15px;
+    padding: 15px;
+    padding-bottom: 20px;
+}
+.experience_header{
+    margin-bottom: 20px;
+}
+.experience_list{
+    display: flex;
+}
+.experience_header span{
+    font-size: 20px;
+    padding: 15px;
+}
+.experience_block{
+    background-color: rgb(7, 32, 53);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    width: 250px;
+}
+.experience_block_header{
+    padding: 15px;
+}
+.experience_block_header{
+    font-size: 20px;
+}
+.experience_role, .start_date, .end_date{
+    padding: 5px;
+    margin: 10px;
+}
+.experience_role span, .start_date span, .end_date span{
+    font-size: 18px;
+}
+@media only screen and (min-width: 1250px) {
+    body{
+        padding-top: 15px;
+        padding-bottom: 25px;
+        background-color: rgb(2, 33, 59);
+        width: 1200px;
+        margin: 0px;
+    }
+
+}
+@media only screen and (min-width: 1024px ) and (max-width: 1249px){
+    body{
+        padding-top: 15px;
+        padding-bottom: 25px;
+        background-color: rgb(2, 33, 59);
+        width: 980px;
+        margin: 0px;
+    }
+    .header_background_image{
+        height: 300px;
+        overflow:hidden;
+        border-radius: 10px;
+    }
+    .header_background_image img {
+        background-size: 300px 980px;
+        width: 980px;
+    }
+
+}
+@media only screen and (min-width: 834px) and (max-width: 1023px){
+    body{
+        padding-top: 15px;
+        padding-bottom: 25px;
+        background-color: rgb(2, 33, 59);
+        width: 815px;
+        margin: 0px;
+    }
+    .header_background_image{
+        height: 200px;
+        overflow:hidden;
+        border-radius: 10px;
+    }
+    .header_background_image img {
+        background-size: 200px 815px;
+        width: 815px;
+    }
+    
+}
+@media only screen and (min-width: 768px) and (max-width: 833px){
+    body{
+        padding-top: 15px;
+        padding-bottom: 25px;
+        background-color: rgb(2, 33, 59);
+        width: 748px;
+        margin: 0px;
+    }
+    .header_background_image{
+        height: 200px;
+        overflow:hidden;
+        border-radius: 10px;
+    }
+    .header_background_image img {
+        background-size: 200px 748px;
+        width: 748px;
+    }
+}
+@media only screen and (min-width: 480px) and (max-width: 767px){
+    body{
+        padding-top: 15px;
+        padding-bottom: 25px;
+        background-color: rgb(2, 33, 59);
+        width: 460px;
+        margin: 0px;
+    }
+    .header_background_image{
+        height: 200px;
+        overflow:hidden;
+        border-radius: 10px;
+    }
+    .header_background_image img {
+        background-size: 200px 460px;
+        width: 460px;
+    }
+}
+@media only screen and (min-width: 350px) and (max-width: 479px){
+    body{
+        padding-top: 15px;
+        padding-bottom: 25px;
+        background-color: rgb(2, 33, 59);
+        width: 330px;
+        margin: 0px;
+    }
+    .header_background_image{
+        height: 200px;
+        overflow:hidden;
+        border-radius: 10px;
+    }
+    .header_background_image img {
+        background-size: 200px 330px;
+        width: 330px;
+    }
 }
